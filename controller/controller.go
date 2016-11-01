@@ -15,7 +15,9 @@ type Controller struct {
 
 	keyCommand map[string]func(*Controller, bool)
 	keyPressed map[string]bool
-	keyAnalog  map[string]int
+
+	analogLeft  [2]int
+	analogRight [2]int
 }
 
 func New() Controller {
@@ -33,9 +35,9 @@ func (c *Controller) update() {
 		fmt.Println(k, v)
 	}
 
-	for k, v := range c.keyAnalog {
-		fmt.Println(k, v)
-	}
+	// for k, v := range c.keyAnalog {
+	// 	fmt.Println(k, v)
+	// }
 }
 
 func (c *Controller) SetKey(key string, pressed bool) {
